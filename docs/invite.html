@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sportifka Invite</title>
+    <meta name="description" content="Open a Sportifka friend invite.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="topbar">
+        <a class="brand" href="index.html" aria-label="Sportifka home">
+          <span class="mark">S</span>
+          <span>Sportifka</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <a href="privacy.html">Privacy</a>
+          <a href="delete-account.html">Account deletion</a>
+          <a href="support.html">Support</a>
+        </nav>
+      </header>
+
+      <section class="content">
+        <h1>Open Sportifka</h1>
+        <p class="lead">Your friend invited you to share workout progress in Sportifka.</p>
+        <p id="invite-code" class="note">Preparing invite...</p>
+        <p>
+          <a id="open-app" class="button-link" href="#">Open app</a>
+          <a class="button-link secondary" href="https://play.google.com/store/apps/details?id=com.dandroinka.pushaper">Get Sportifka</a>
+        </p>
+        <p class="meta">
+          If the app does not open automatically, tap Open app. If Sportifka is not installed,
+          install it first and then open this invite again.
+        </p>
+      </section>
+
+      <footer>
+        <p>Sportifka friend invite</p>
+      </footer>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const rawCode = params.get("code") || "";
+      const code = rawCode.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 64);
+      const deepLink = `sportifka://invite?code=${encodeURIComponent(code)}`;
+      const codeEl = document.getElementById("invite-code");
+      const openApp = document.getElementById("open-app");
+
+      if (code) {
+        codeEl.textContent = `Invite code: ${code}`;
+        openApp.href = deepLink;
+        window.setTimeout(() => {
+          window.location.href = deepLink;
+        }, 300);
+      } else {
+        codeEl.textContent = "Invite code is missing. Ask your friend to send the invite again.";
+        openApp.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
