@@ -22,7 +22,7 @@
       </header>
 
       <article class="content">
-        <p class="meta">Last updated: June 18, 2026</p>
+        <p class="meta">Last updated: June 20, 2026</p>
         <h1>Privacy Policy</h1>
         <p>
           This Privacy Policy explains how the Sportifka Android app handles data. Sportifka is a
@@ -59,9 +59,35 @@
             unlock timestamps may be stored in Firebase Cloud Firestore.
           </li>
           <li>
+            <strong>Friends and invites.</strong> If the user uses friend features, Sportifka stores
+            data in Firebase Cloud Firestore to connect users:
+            <ul>
+              <li>
+                <em>Invite links.</em> When a user creates an invite, Sportifka stores a one-time,
+                expiring invite code together with that user's display name and email address. Anyone
+                who has the invite link can read the inviter's display name and email in order to see
+                who invited them; this is why an invite link should only be shared with intended people.
+              </li>
+              <li>
+                <em>Connections.</em> When an invite is accepted, Sportifka stores the connection
+                (both users' Firebase user IDs, email addresses, and display names). Once connected,
+                each friend can see the other's display name, email address, and aggregate workout
+                stats (such as best set today, daily total repetitions, and streak) — never the full
+                workout history.
+              </li>
+            </ul>
+          </li>
+          <li>
             <strong>Feedback.</strong> If the user sends feedback from the app, Sportifka may store
             the feedback text, timestamp, app locale, current exercise type, and, if signed in, the
             user's Firebase user ID and email address.
+          </li>
+          <li>
+            <strong>Motion and counter logs.</strong> If the user chooses to submit a counter log
+            (used to improve rep-counting accuracy), Sportifka uploads the motion-sensor readings from
+            that set together with the counted and the user-reported repetition counts, the exercise
+            type, app version, and capture timestamp to Firebase Cloud Firestore. These logs do not
+            include camera frames.
           </li>
           <li>
             <strong>Health Connect data.</strong> If the user enables Health Connect integration,
@@ -77,8 +103,10 @@
 
         <h2>How the data is used</h2>
         <ul>
-          <li>To provide app functionality, including workout history, sync, achievements, and support.</li>
+          <li>To provide app functionality, including workout history, sync, achievements, friends, and support.</li>
+          <li>To let connected friends compare aggregate progress (leaderboards) when the user uses friend features.</li>
           <li>To write workouts to Health Connect when the user explicitly enables that integration.</li>
+          <li>To improve rep-counting accuracy from counter logs the user chooses to submit.</li>
           <li>To respond to support and feedback requests.</li>
           <li>To diagnose crashes, improve reliability, and maintain app security.</li>
         </ul>
@@ -89,6 +117,14 @@
           services from Google, to provide authentication, cloud storage, feedback storage, and crash
           reporting. If the user enables Health Connect, workout data is written to Health Connect
           on the user's device with the user's permission.
+        </p>
+        <p>
+          <strong>Sharing with other users.</strong> Friend features are optional and user-initiated.
+          When a user shares an invite link, the people who open that link can see the inviter's
+          display name and email address. When two users connect, each can see the other's display
+          name, email address, and aggregate workout statistics (such as best set today, daily total
+          repetitions, and streak). Full workout history is never shared with other users. A user can
+          stop sharing at any time by removing the connection.
         </p>
 
         <h2>Security</h2>

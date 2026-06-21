@@ -175,6 +175,29 @@ li + li {
   color: var(--text);
 }
 
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--lime), var(--green));
+  color: var(--on-primary);
+  font-weight: 800;
+}
+
+.button-link:hover {
+  text-decoration: none;
+}
+
+.button-link.secondary {
+  margin-left: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+}
+
 .placeholder {
   display: inline-block;
   padding: 1px 7px;
