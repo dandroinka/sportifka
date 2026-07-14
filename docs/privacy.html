@@ -22,7 +22,7 @@
       </header>
 
       <article class="content">
-        <p class="meta">Last updated: June 20, 2026</p>
+        <p class="meta">Last updated: July 14, 2026</p>
         <h1>Privacy Policy</h1>
         <p>
           This Privacy Policy explains how the Sportifka Android app handles data. Sportifka is a
@@ -37,9 +37,13 @@
         <h2>Data processed on the device</h2>
         <p>
           Sportifka can process camera frames and motion sensor readings on the user's device to
-          count exercises. Camera frames are not uploaded by Sportifka. Local workout settings,
+          count exercises. Camera frames are analyzed in real time on the device only (to detect
+          the user's face or body pose) and are immediately discarded: they are never recorded,
+          never saved to storage, and never uploaded anywhere by Sportifka. Local workout settings,
           workout goals, notification settings, height, and weight can be stored locally on the
-          device.
+          device. If the user connects a Bluetooth heart-rate monitor or a Bluetooth body scale,
+          Sportifka receives heart-rate and weight measurements from those devices; the readings
+          are processed as described below and no other data is read from the devices.
         </p>
 
         <h2>Data collected or transmitted</h2>
@@ -52,7 +56,15 @@
           <li>
             <strong>Workout data.</strong> If cloud sync is enabled by signing in, Sportifka may
             store workout history in Firebase Cloud Firestore, including exercise type, repetitions,
-            duration, timestamp, and best set repetitions.
+            duration, timestamp, best set repetitions, and — when a heart-rate monitor was connected
+            during the workout — average and maximum heart rate.
+          </li>
+          <li>
+            <strong>Profile and body data.</strong> If cloud sync is enabled, Sportifka may store
+            the user's height, weight, age, and workout/calorie goals in Firebase Cloud Firestore,
+            together with a day-by-day weight history. Weight entries can come from manual input or
+            from a Bluetooth body scale the user has connected. This data is used to calculate
+            calories and to show weight statistics to the user; it is never visible to friends.
           </li>
           <li>
             <strong>Achievements.</strong> If cloud sync is enabled, achievement identifiers and
@@ -91,8 +103,8 @@
           </li>
           <li>
             <strong>Health Connect data.</strong> If the user enables Health Connect integration,
-            Sportifka may write exercise sessions and active calories to Health Connect with the
-            user's permission.
+            Sportifka may write exercise sessions, active calories, and heart-rate records to
+            Health Connect with the user's permission.
           </li>
           <li>
             <strong>Diagnostics and crash logs.</strong> Sportifka uses Firebase Crashlytics to
